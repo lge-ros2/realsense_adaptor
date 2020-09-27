@@ -24,9 +24,9 @@ def generate_launch_description():
 
     start_node_cmd = Node(
         package=_package_name,
-        node_executable=_package_name,
-        node_name=_package_name,
-        node_namespace=_namespace,
+        executable=_package_name,
+        name=_package_name,
+        namespace=_namespace,
         parameters=[config_file_path],
         output='screen')
 

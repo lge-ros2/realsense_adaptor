@@ -21,6 +21,12 @@ find_package(sensor_msgs REQUIRED)
 find_package(message_filters REQUIRED)
 find_package(realsense_adaptor_msgs REQUIRED)
 
+set(dependencies
+  rclcpp
+  sensor_msgs
+  realsense_adaptor_msgs
+  message_filters
+)
 
 ################################################################################
 # Build
@@ -32,20 +38,17 @@ add_executable(${PROJECT_NAME}
   src/main.cpp)
 
 ament_target_dependencies(${PROJECT_NAME}
-  rclcpp
-  sensor_msgs
-  realsense_adaptor_msgs
-  message_filters)
-
+  ${dependencies}
+)
 
 ################################################################################
 # Install
 ################################################################################
-install(TARGETS ${PROJECT_NAME} DESTINATION lib/${PROJECT_NAME})
-install(DIRECTORY config launch DESTINATION share/${PROJECT_NAME})
+install(TARGETS ${PROJECT_NAME}
+  RUNTIME DESTINATION lib/${PROJECT_NAME}
+)
 
-################################################################################
-# Test
-################################################################################
+install(DIRECTORY config launch
+  DESTINATION share/${PROJECT_NAME})
 
 ament_package()
