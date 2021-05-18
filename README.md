@@ -1,5 +1,8 @@
 # realsense_adaptor
 
-synchronize the image data published from realsense node
+A set of packages for realsense adaptor
 
-realsense_adaptor_msgs is required for this package
+|package name|description|
+|:----------:|-----------|
+|realsense_adaptor| synchronize the image data published from realsense node |
+|realsense_adaptor_msgs| message interfaces for realsense adaptor|
